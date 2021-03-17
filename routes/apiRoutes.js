@@ -13,20 +13,36 @@ module.exports = function(app){
   })
 
   app.post("/api/notes", (req, res) => {
-    console.log("in save");
     let addNote = req.body;
-    console.log("id: = "+ addNote.id + savedNotes.length);
     if (savedNotes.length > 0) {
       addNote.id = savedNotes.length + 1; 
     }
-    console.log("id1: = "+ addNote.id + savedNotes.length);
 
     savedNotes.push(addNote);
-    console.log("id2: = "+ addNote.id + savedNotes.length);
 
     fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
       if (err) throw err;
       return res.json(true);
   });
 })
+
+app.delete("/api/notes/:id", (req, res) => {
+  console.log("in delete" + req.params.id);
+
+  savedNotes = savedNotes.filter(function(jsonObject) {
+    return jsonObject.id != req.params.id;
+  });
+
+  console.log("after delete" + savedNotes);
+
+//  savedNotes.splice(req.params.id, 1);
+  fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
+    if (err) throw err;
+    return true;
+});
+    console.log("Deleted note with id "+ req.params.id);
+    res.json(savedNotes);
+})
 }
+
+
