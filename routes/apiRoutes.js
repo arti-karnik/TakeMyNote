@@ -19,11 +19,10 @@ module.exports = function(app){
       addNote.id = savedNotes[savedNotes.length - 1].id + 1; 
     }
     savedNotes.push(addNote);
-    writetoDB();
-    /*fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
+    fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
       if (err) throw err;
       return res.json(true);
-    });*/
+    });
     console.log("saved note");
 })
 
@@ -31,11 +30,10 @@ module.exports = function(app){
   savedNotes = savedNotes.filter(function(jsonObject) {
     return jsonObject.id != req.params.id;
   });
-  writetoDB();
-  /*fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
+  fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
     if (err) throw err;
     return true;
-});*/
+});
     console.log("Deleted note with id "+ req.params.id);
     res.json(savedNotes);
 })
@@ -47,11 +45,10 @@ module.exports = function(app){
       savedNotes[i].text = req.body.text;
     }
   }
-  writetoDB();
-  /*fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
+  fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
     if (err) throw err;
     return true;
-  });*/
+  });
     console.log("updated  note with id "+ req.params.id);
     return res.json(savedNotes);
 })
