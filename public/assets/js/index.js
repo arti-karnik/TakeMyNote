@@ -77,7 +77,6 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   if (activeNote.id) {
-    console.log("in saving... update" + noteTitle.value + " " + noteText.value);
     const updatedNote = {
       title: noteTitle.value,
       text: noteText.value,
@@ -88,11 +87,7 @@ const handleNoteSave = () => {
       getAndRenderNotes();
       renderActiveNote();
     });
-    console.log("in up");
-
   } else {
-    console.log("in saving... new ");
-
     const newNote = {
       title: noteTitle.value,
       text: noteText.value,
@@ -108,7 +103,6 @@ const handleNoteSave = () => {
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
-  console.log("in delete");
   // prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
   const note = e.target;
