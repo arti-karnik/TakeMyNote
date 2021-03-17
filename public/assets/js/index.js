@@ -48,6 +48,15 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json',
     },
+});
+
+const updateNote = (note) =>
+  fetch(`/api/notes/update/${note.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(note),
   });
 
 const renderActiveNote = () => {
@@ -67,22 +76,41 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
-  const newNote = {
-    title: noteTitle.value,
-    text: noteText.value,
-    id: 1
-  };
-  saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  if (activeNote.id) {
+    console.log("in saving... update" + noteTitle.value + " " + noteText.value);
+    const updatedNote = {
+      title: noteTitle.value,
+      text: noteText.value,
+      id: activeNote.id
+    };
+
+    updateNote(updatedNote).then(() => {
+      getAndRenderNotes();
+      renderActiveNote();
+    });
+    console.log("in up");
+
+  } else {
+    console.log("in saving... new ");
+
+    const newNote = {
+      title: noteTitle.value,
+      text: noteText.value,
+      id: 1
+    };
+    saveNote(newNote).then(() => {
+      getAndRenderNotes();
+      renderActiveNote();
+    });
+  }
+  
 };
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
+  console.log("in delete");
   // prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
-
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
 
@@ -91,7 +119,6 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
-    console.log("in delete" + noteId);
 
     getAndRenderNotes();
     renderActiveNote();
@@ -107,9 +134,7 @@ const handleNoteView = (e) => {
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
-  alert("new node");
   e.preventDefault();
-
   activeNote = {};
   renderActiveNote();
 };
