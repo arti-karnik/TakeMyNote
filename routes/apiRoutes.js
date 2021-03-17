@@ -14,7 +14,16 @@ module.exports = function(app){
 
   app.post("/api/notes", (req, res) => {
     console.log("in save");
-    savedNotes.push(req.body);
+    let addNote = req.body;
+    console.log("id: = "+ addNote.id + savedNotes.length);
+    if (savedNotes.length > 0) {
+      addNote.id = savedNotes.length + 1; 
+    }
+    console.log("id1: = "+ addNote.id + savedNotes.length);
+
+    savedNotes.push(addNote);
+    console.log("id2: = "+ addNote.id + savedNotes.length);
+
     fs.writeFile("./db/db.json",JSON.stringify(savedNotes,'\t'),err => {
       if (err) throw err;
       return res.json(true);
