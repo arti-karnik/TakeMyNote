@@ -4,6 +4,7 @@ html, body {
   padding: 0;
 }
 
+
 .save-note {
   display: none;
 }
@@ -68,3 +69,19 @@ html, body {
   padding: 20px;
   cursor: pointer;
 }
+.navbar {
+  background-color: #b14042;
+}
+.navbar a {
+  color: whitesmoke;
+  font-family: 'Trebuchet MS';
+  font-style: italic;
+  font-size: 20px;
+}
+.btn {
+  background-color: #b14042;
+}
+.select {
+  background-color: lightblue;
+}
+

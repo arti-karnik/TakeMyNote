@@ -11,7 +11,6 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
-
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
@@ -63,13 +62,9 @@ const renderActiveNote = () => {
   hide(saveNoteBtn);
 
   if (activeNote.id) {
-  //  noteTitle.setAttribute('readonly', true);
-   // noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
-  //  noteTitle.setAttribute('readonly', true);
-  //  noteText.setAttribute('readonly', true);
     noteTitle.value = '';
     noteText.value = '';
   }
@@ -82,6 +77,8 @@ const handleNoteSave = () => {
       text: noteText.value,
       id: activeNote.id
     };
+    activeNote.title = noteTitle.value;
+    activeNote.text = noteText.value;
 
     updateNote(updatedNote).then(() => {
       getAndRenderNotes();
@@ -113,7 +110,6 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
-
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -121,9 +117,15 @@ const handleNoteDelete = (e) => {
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
-  e.preventDefault();
-   activeNote = JSON.parse(e.target.getAttribute('data-note'));
-   renderActiveNote();
+    e.preventDefault();
+    activeNote = JSON.parse(e.target.getAttribute('data-note'));
+    console.log(e.target);
+    e.target.parentElement.querySelectorAll( ".select" ).forEach( e =>
+      e.classList.remove( "select" ) );
+
+    e.target.classList.add('select');
+    renderActiveNote();
+
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
@@ -157,9 +159,6 @@ const renderNoteList = async (notes) => {
 
     const spanEl = document.createElement('span');
     spanEl.innerText = text;
-   
-    //spanEl.addEventListener('click', handleNoteView);
-
     liEl.append(spanEl);
     liEl.addEventListener('click', handleNoteView);
 
@@ -173,10 +172,8 @@ const renderNoteList = async (notes) => {
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
-
       liEl.append(delBtnEl);
     }
-
     return liEl;
   };
 
