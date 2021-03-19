@@ -96,27 +96,24 @@ const handleNoteSave = () => {
     saveNote(newNote).then(() => {
       getAndRenderNotes();
       renderActiveNote();
-      alert("Note saved..");
     });
   }
   
 };
-
-const handleNoteDelete1 = (e) => {
-  if (confirm("Press a button!")) {
-    txt = "You pressed OK!";
-  } else {
-    txt = "You pressed Cancel!";
+var modalConfirm = function(callback) {
+  document.getElementById('saveid').onclick = function saveModal() {
+      callback(true); 
   }
-  selectedNote = e;
-};
+  document.getElementById('closeid').onclick = function closeModal() {
+      callback(false); 
+  }
+}; 
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
-  if (!confirm("Are you sure, you want to delete? Note and its description will be deleted.")) {
-      return;
-  }
- // prevents the click listener for the list from being called when the button inside of it is clicked
+  modalConfirm(function(confirm) { 
+    if (confirm) { 
+        // prevents the click listener for the list from being called when the button inside of it is clicked
  e.stopPropagation();
  const note = e.target;
  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
@@ -129,6 +126,14 @@ const handleNoteDelete = (e) => {
    getAndRenderNotes();
    renderActiveNote();
  });
+
+    } else {
+        return;
+    } 
+});
+return;
+
+ 
 };
 
 // Sets the activeNote and displays it
@@ -188,6 +193,9 @@ const renderNoteList = async (notes) => {
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
+      delBtnEl.setAttribute('data-toggle', 'modal');
+      delBtnEl.setAttribute('data-target', '#exampleModal');
+
       liEl.append(delBtnEl);
     }
     return liEl;
