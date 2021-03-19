@@ -13,10 +13,10 @@
 [Application Live url:](#liveurl)  
 
 ## Summary
-this is my header
+Application to keep track of tasks/ to-do items. It will allow users to write, edit, delete and save notes. Notes are saved in server and would be retrieve when user open application next time. 
 
 ## Description
-this is my header
+Create an application called 'Take my Notes' that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file. The application’s front end has been created with hTML,CSS, Bootstrap. Application is deployed to Heroku.
 
 ## Pre-requisite
 Install NodeJS 
