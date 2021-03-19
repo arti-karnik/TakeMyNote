@@ -10,5 +10,5 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
  app.listen(PORT, () => {
-  console.log(`Server is listening port: ${PORT}`)
+  console.log(`Listening to the PORT: ${PORT}`)
 })
