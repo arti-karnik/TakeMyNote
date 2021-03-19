@@ -194,7 +194,7 @@ const renderNoteList = async (notes) => {
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
       delBtnEl.setAttribute('data-toggle', 'modal');
-      delBtnEl.setAttribute('data-target', '#exampleModal');
+      delBtnEl.setAttribute('data-target', '#deleteModal');
 
       liEl.append(delBtnEl);
     }
