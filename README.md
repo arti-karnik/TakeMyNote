@@ -35,12 +35,12 @@ Install NodeJS
     <br>
     </li>
     <li> 
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">NodeJS <a>
+    <a href="https://nodejs.org/en/docs/">NodeJS <a>
     <li> 
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Express.js<a>
+    <a href="https://expressjs.com/en/guide/routing.html">Express.js<a>
     </li>
     <li> 
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Bootstrap </a>
+    <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap </a>
     </li>
 </ul>
 
