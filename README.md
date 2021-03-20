@@ -1,16 +1,15 @@
 # TakeMyNote
-##### Table of Contents  
-[Summary:](#summary)  
-[Description:](#description) 
-[Pre-requisite:](#pre-requisite) 
-[Demo:](#demo) 
-[Technology used :](#tech) 
-[Installation:](#installation)  
-[Code snippets:](#code)  
-[Testing:](#testing)  
-[Contributor:](#contributor)  
-[Code-base:](#code)  
-[Application Live url:](#liveurl)  
+#### Table of Contents
+1. [Summary](#Summary)
+2. [Description](#Description)
+3. [Demo:](#demo)
+4. [Code snippets:](#code)
+5. [Technology used:](#Technologyused:)
+6. [Install](#install)
+7. [Testing:](#testing)
+8. [Contributor:](#contributor)
+9. [Code-base:](#codebase)
+10. [Application Live url:](#liveurl)
 
 ## Summary
 Application to keep track of tasks/ to-do items. It will allow users to write, edit, delete and save notes. Notes are saved in server and would be retrieve when user open application next time. 
@@ -21,13 +20,13 @@ Create an application called 'Take my Notes' that can be used to write and save 
 ## Pre-requisite
 Install NodeJS 
 
-## Demo
+## demo
 ![](mygif.gif)
 <img src="./public/assets/images/SS2.png">
 <img src="./public/assets/images/SS3.png">
 <img src="./public/assets/images/SS4.png">
 
-## Technology used
+## Technologyused:
 <ul>
     <li> 
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Javascript <a>
@@ -43,7 +42,7 @@ Install NodeJS
     </li>
 </ul>
 
-## Installation
+## install
 <strong>Code installation:</strong> <br>
 $ cd [path_to_save_codebase] <br>
 $ git clone https://github.com/arti-karnik/TakeMyNote <br>
@@ -54,7 +53,7 @@ $ npm install <br>
 $ node server.js <br>
 Open browser and type => localhost:3010/
 
-## Code to initialize server call:
+## code:
 Initialize Express server and set up routes.
 
 const express = require("express");
@@ -78,8 +77,9 @@ app.get("/api/notes", (req, res) => {
       res.json(savedNotes);
   })
 
-## Testing 
+## testing 
 Unit tested application in Chrome, Edge and Safari. 
+
 ## Contributor
 <strong> Github Profile: </strong> <br>
 https://github.com/arti-karnik
@@ -87,10 +87,10 @@ https://github.com/arti-karnik
 <strong> Portfolio: </strong> <br>
 https://arti-karnik.github.io/MyPortfolioPage/
 
-## Code-base
+## codebase
 https://github.com/arti-karnik/TakeMyNote
 
-## Application Live url
+## liveurl
 https://floating-woodland-77953.herokuapp.com/
 
 
