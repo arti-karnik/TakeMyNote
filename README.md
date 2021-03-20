@@ -1,15 +1,17 @@
-# TakeMyNote
-#### Table of Contents
-1. [Summary](#Summary)
-2. [Description](#Description)
-3. [Demo:](#demo)
-4. [Code snippets:](#code)
-5. [Technology used:](#Technologyused:)
-6. [Install](#install)
-7. [Testing:](#testing)
-8. [Contributor:](#contributor)
-9. [Code-base:](#codebase)
-10. [Application Live url:](#liveurl)
+ [TakeMyNote](#takemynote)
+    - [Table of Contents](#table-of-contents)
+  * [Summary](#summary)
+  * [Description](#description)
+  * [Pre-requisite](#pre-requisite)
+  * [demo](#demo)
+  * [Technologyused:](#technologyused-)
+  * [Install:](#install-)
+  * [Code snippets:](#code-snippets-)
+  * [Testing](#testing)
+  * [Contributor](#contributor)
+  * [codebase](#codebase)
+  * [Application Live url](#application-live-url)
+
 
 ## Summary
 Application to keep track of tasks/ to-do items. It will allow users to write, edit, delete and save notes. Notes are saved in server and would be retrieve when user open application next time. 
@@ -42,7 +44,7 @@ Install NodeJS
     </li>
 </ul>
 
-## install
+## Install:
 <strong>Code installation:</strong> <br>
 $ cd [path_to_save_codebase] <br>
 $ git clone https://github.com/arti-karnik/TakeMyNote <br>
@@ -53,7 +55,7 @@ $ npm install <br>
 $ node server.js <br>
 Open browser and type => localhost:3010/
 
-## code:
+## Code snippets:
 Initialize Express server and set up routes.
 
 const express = require("express");
@@ -77,7 +79,7 @@ app.get("/api/notes", (req, res) => {
       res.json(savedNotes);
   })
 
-## testing 
+## Testing 
 Unit tested application in Chrome, Edge and Safari. 
 
 ## Contributor
@@ -90,7 +92,7 @@ https://arti-karnik.github.io/MyPortfolioPage/
 ## codebase
 https://github.com/arti-karnik/TakeMyNote
 
-## liveurl
+## Application Live url
 https://floating-woodland-77953.herokuapp.com/
 
 
