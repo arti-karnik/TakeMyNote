@@ -31,16 +31,16 @@ Install NodeJS
 ## Technologyused:
 <ul>
     <li> 
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target=_blank>Javascript <a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Javascript <a>
     <br>
     </li>
     <li> 
-    <a href="https://nodejs.org/en/docs/">NodeJS <a>
+    <a href="https://nodejs.org/en/docs/"target="_blank">NodeJS <a>
     <li> 
-    <a href="https://expressjs.com/en/guide/routing.html" target=_blank>Express.js<a>
+    <a href="https://expressjs.com/en/guide/routing.html" target="_blank">Express.js<a>
     </li>
     <li> 
-    <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target=_blank>Bootstrap </a>
+    <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap </a>
     </li>
 </ul>
 
